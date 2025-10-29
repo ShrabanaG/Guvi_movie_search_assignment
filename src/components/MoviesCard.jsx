@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { HiOutlineFilter } from "react-icons/hi";
 
@@ -75,7 +76,8 @@ const MoviesCard = ({ movies, setMovies, error, searchedTerm }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {movies.map((movie, index) => (
-              <div
+              <Link
+                to={`/movie/${movie.imdbID}`}
                 key={index}
                 className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col"
               >
@@ -96,7 +98,7 @@ const MoviesCard = ({ movies, setMovies, error, searchedTerm }) => {
                     Type: {movie.Type}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
